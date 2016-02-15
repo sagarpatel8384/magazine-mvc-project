@@ -1,18 +1,10 @@
 require 'pry' # Pry.start does not work without requring pry
 require_relative '../config/environment'
-# require_relative '../tools/seed' # Not Working
+require_relative '../tools/seed'
 
-# def reload!
-#   load('../config/environment.rb')
-# end
-
-# SEED DATA
-
-["Time", "People", "New Yorker", "Nylon", "Wired"].each do |magazine|
-  Magazine.new(magazine)
+def reload!
+  load('../config/environment.rb')
 end
-
-# CLI
 
 action = "something"
 
@@ -23,17 +15,18 @@ while action != "Exit"
   case action
 
   when "Browse"
-    magazine = MagazinesController.new
-    magazine.index
-    magazine = MagazinesController.new
-    magazine.show
+    controller = MagazinesController.new
+    controller.index
+    controller = MagazinesController.new
+    article_title = controller.show
+    article = Article.all.find {|article| article.title == article_title}
+    puts article.body if article
 
   when "Write"
-    journalist = JournalistsController.new
-    journalist_argument = journalist.new
-    journalist = JournalistsController.new
-    journalist.create_article(journalist_argument)
-
+    controller = JournalistsController.new
+    journalist_argument = controller.new
+    controller = JournalistsController.new
+    controller.create_article(journalist_argument)
 
   when "Publish"
     controller = JournalistsController.new

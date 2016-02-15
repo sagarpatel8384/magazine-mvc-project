@@ -10,6 +10,7 @@ class JournalistsCreateView
     puts "Type the body of your article here."
     body = gets.chomp
     puts "Thank you for writing your article."
+    body
   end
 
 end

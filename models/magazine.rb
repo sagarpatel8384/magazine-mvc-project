@@ -24,7 +24,7 @@ class Magazine
 
   def self.magazine_articles(magazine_name)
     self.all.find {|magazine| magazine.name == magazine_name}.articles.each.with_index(1) do |article, idx|
-      puts "#{idx}. #{article.title}"
+      "#{idx}. #{article.title}"
     end
   end
 
