@@ -16,8 +16,8 @@ class Journalist
     @@journalists << self
   end
 
-  def write_article_by_title(article_title)
-    new_article = Article.new(article_title)
+  def write_article_by_title(article_title, article_body)
+    new_article = Article.new(article_title, article_body)
     self.articles << new_article
     new_article.journalist = self
   end

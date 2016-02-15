@@ -1,9 +1,10 @@
 class Article
   attr_reader :title
-  attr_accessor :journalist, :magazine
+  attr_accessor :body, :journalist, :magazine
 
-  def initialize(title)
+  def initialize(title, body)
     @title = title
+    @body = body
   end
 
   def assign_to_magazine(magazine_title)

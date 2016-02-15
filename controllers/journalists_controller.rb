@@ -8,8 +8,10 @@ class JournalistsController
 
   def create_article(journalist)
     journalist_article = JournalistsCreateView.new
-    title = journalist_article.render
-    journalist.write_article_by_title(title)
+    title = journalist_article.render_title
+    journalist_article = JournalistsCreateView.new
+    body = journalist_article.render_body
+    journalist.write_article_by_title(title, body)
   end
 
   def get_journalist
