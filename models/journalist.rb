@@ -1,9 +1,19 @@
 class Journalist
   attr_reader :name, :articles
+  @@journalists = []
+
+  def self.all
+    @@journalists
+  end
+
+  def self.find_journalist_by_name(name)
+    self.all.find { |journalist| journalist.name == name }
+  end
 
   def initialize(name)
     @name = name
     @articles = []
+    @@journalists << self
   end
 
   def write_article_by_title(article_title)
