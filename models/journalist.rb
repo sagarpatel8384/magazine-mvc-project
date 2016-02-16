@@ -20,6 +20,7 @@ class Journalist
     new_article = Article.new(article_title, article_body)
     self.articles << new_article
     new_article.journalist = self
+    new_article
   end
 
   def submit_article(article_title, magazine_title)
