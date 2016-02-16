@@ -16,11 +16,11 @@ class Magazine
     @articles << article
   end
 
-  def self.index
-    self.all.each.with_index(1) do |magazine, idx|
-      puts "#{idx}. #{magazine.name}"
-    end
-  end
+  # def self.index
+  #   self.all.each.with_index(1) do |magazine, idx|
+  #     puts "#{idx}. #{magazine.name}"
+  #   end
+  # end
 
   def self.magazine_articles(magazine_name)
     self.all.find {|magazine| magazine.name == magazine_name}.articles.each.with_index(1) do |article, idx|
