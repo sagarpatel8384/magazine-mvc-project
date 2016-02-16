@@ -1,4 +1,5 @@
 class MagazinesController
+  
   def index
     Magazine.index
   end
