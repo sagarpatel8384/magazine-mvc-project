@@ -19,8 +19,9 @@ while action != "Exit"
     controller.index
     controller = MagazinesController.new
     article_title = controller.show
-    article = Article.all.find {|article| article.title == article_title}
-    puts article.body if article
+    controller = ArticlesController.new
+    controller.show(article_title)
+    
 
   when "Write"
     controller = JournalistsController.new

@@ -1,6 +1,8 @@
+require "erb"
 require_relative '../models/article'
 require_relative '../models/journalist'
 require_relative '../models/magazine'
+require_relative '../controllers/articles_controller'
 require_relative '../controllers/magazines_controller'
 require_relative '../controllers/journalists_controller'
 require_relative '../views/magazines/new'
