@@ -8,19 +8,17 @@ class MagazinesController
   def show
     view = MagazinesNewView.new
     magazine_name = view.render
-    # binding.pry
     if Magazine.magazine_articles(magazine_name).empty?
       self.render("magazine/error")
     else
       @article_names = Magazine.magazine_articles(magazine_name)
-      binding.pry
       self.render("magazine/show")
-      # article_names = Magazine.magazine_articles(magazine_name)
-      # view = MagazinesShowView.new
-      # view.show_article(article_names)
+      article_names = Magazine.magazine_articles(magazine_name)
+      view = MagazinesShowView.new
+      view.show_article(article_names)
 
-      # view = MagazinesShowView.new
-      # view.render
+      view = MagazinesShowView.new
+      view.render
     end
   end
 
@@ -31,7 +29,6 @@ class MagazinesController
     output_content = template.result(binding)
     output_file = "/Users/sagarpatel/Documents/Flatiron/Labs/Ruby/magazine-mvc-project/views/output/#{file}.html"
     File.write(output_file, output_content)
-
     `open -a "Google Chrome" #{output_file}`
   end
 

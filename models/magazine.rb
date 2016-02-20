@@ -1,25 +1,9 @@
-class Magazine
-  attr_reader :name, :articles
-  @@magazines = []
+require_relative "../config/environment.rb"
+require 'active_support/inflector'
+require_relative 'interactive_record.rb'
 
-  def initialize(name)
-    @name = name
-    @articles = []
-    @@magazines << self
-  end
-
-  def self.all
-    @@magazines
-  end
-
-  def articles=(article)
-    @articles << article
-  end
-
-  def self.magazine_articles(magazine_name)
-    self.all.find {|magazine| magazine.name == magazine_name}.articles.each.with_index(1) do |article, idx|
-      "#{idx}. #{article.title}"
-    end
-  end
-
+class Magazine < InteractiveRecord
+  attr_accessor :name
+  # attr_accessor(*self.public_attributes)
+  attr_reader :id
 end

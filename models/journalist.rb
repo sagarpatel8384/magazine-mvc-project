@@ -1,37 +1,9 @@
-class Journalist
-  attr_reader :name, :articles
-  @@journalists = []
+require_relative "../config/environment.rb"
+require 'active_support/inflector'
+require_relative 'interactive_record.rb'
 
-  def self.all
-    @@journalists
-  end
-
-  def self.find_journalist_by_name(name)
-    self.all.find { |journalist| journalist.name == name }
-  end
-
-  def initialize(name)
-    @name = name
-    @articles = []
-    @@journalists << self
-  end
-
-  def write_article_by_title(article_title, article_body)
-    new_article = Article.new(article_title, article_body)
-    self.articles << new_article
-    new_article.journalist = self
-    new_article
-  end
-
-  def submit_article(article_title, magazine_title)
-    if find_article_by_title(article_title)
-      article = find_article_by_title(article_title)
-      article.assign_to_magazine(magazine_title)
-    end
-  end
-
-  def find_article_by_title(article_title)
-    self.articles.find { |article|  article.title == article_title}
-  end
-
+class Journalist < InteractiveRecord
+  attr_accessor :name
+  # attr_accessor(*self.public_attributes)
+  attr_reader :id
 end

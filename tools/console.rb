@@ -1,10 +1,11 @@
-require 'pry' # Pry.start does not work without requring pry
-require_relative '../config/environment'
-require_relative '../tools/seed'
+require 'pry'
+require_relative '../config/environment.rb'
+require_relative 'seed'
 
 def reload!
   load('../config/environment.rb')
 end
+
 
 action = "something"
 
@@ -19,8 +20,10 @@ while action != "Exit"
     controller.index
     controller = MagazinesController.new
     article_title = controller.show
-    article = Article.all.find {|article| article.title == article_title}
-    puts article.body if article
+    # article = Article.all.find {|article| article.title == article_title}
+    # puts article.body if article
+    controller = ArticlesController.new
+    controller.show(article_title)
 
   when "Write"
     controller = JournalistsController.new
@@ -40,5 +43,6 @@ while action != "Exit"
   end
 
 end
+
 
 Pry.start
