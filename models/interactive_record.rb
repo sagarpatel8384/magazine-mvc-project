@@ -68,18 +68,16 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name}
     SQL
     all = DB[:conn].execute(sql)
-    array = []
 
-    all.each do |element|
+    all.map do |element|
+      hash = {}
       element.each do |key, value|
         if key.is_a?(String)
-          array << {key.to_sym => value}
+          hash[key.to_sym] = value
         end
       end
+      self.new_from_database(hash)
     end
-
-    self.new_from_database(array)
-
   end
 
   def self.new_from_database(row)
