@@ -8,7 +8,9 @@ class MagazinesController
   def show
     view = MagazinesNewView.new
     @magazine_name = view.render
-    if Magazine.magazine_articles(@magazine_name).empty?
+    if Magazine.magazine_articles(@magazine_name) == nil
+      render("magazines/not_found")
+    elsif Magazine.magazine_articles(@magazine_name).empty?
       render("magazines/show_error")
     else
       @article_names = Magazine.magazine_articles(@magazine_name)

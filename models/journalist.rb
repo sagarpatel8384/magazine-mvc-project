@@ -24,10 +24,12 @@ class Journalist
   end
 
   def submit_article(article_title, magazine_title)
-    if find_article_by_title(article_title)
-      article = find_article_by_title(article_title)
+    article = find_article_by_title(article_title)
+      if article 
       article.assign_to_magazine(magazine_title)
-    end
+      else 
+        
+      end
   end
 
   def find_article_by_title(article_title)

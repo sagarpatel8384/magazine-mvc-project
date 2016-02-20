@@ -16,19 +16,18 @@ class Article
       self.magazine = magazine
       magazine.articles = self
     end
-  end
-
-  def self.show_article_body(article_title)
-    body = ''
-    article = self.all.find { |article| article.title == article_title}
-    if article
-      body = article.body
-    end
-    body
+    
   end
 
   def self.all
     @@articles
+  end
+
+  def self.show_article_body(article_title)
+    article = self.all.find { |article| article.title == article_title }
+    if article
+      article.body
+    end
   end
 
 end
