@@ -1,26 +1,33 @@
 require 'erb'
 require 'sqlite3'
 require 'pry'
+require 'active_support/inflector'
 
+# DATABASE CREATION
 DB = {:conn => SQLite3::Database.new("publishing.db")}
-DB[:conn].execute("DROP TABLE IF EXISTS articles")
-DB[:conn].execute("DROP TABLE IF EXISTS journalists")
-DB[:conn].execute("DROP TABLE IF EXISTS magazines")
 
-require_relative '../models/interactive_record'
-require_relative '../models/article'
-require_relative '../models/journalist'
-require_relative '../models/magazine'
-require_relative '../controllers/magazines_controller'
-require_relative '../controllers/journalists_controller'
-require_relative '../controllers/articles_controller'
-require_relative '../views/magazines/new'
-require_relative '../views/magazines/show'
-require_relative '../views/journalists/new'
-require_relative '../views/journalists/create'
-require_relative '../views/journalists/show'
-require_relative '../views/journalists/publish'
+# CONCERNS
+require_relative '../app/concerns/databaseable'
 
+# MODELS
+require_relative '../app/models/article'
+require_relative '../app/models/journalist'
+require_relative '../app/models/magazine'
+
+# CONTROLLERS
+require_relative '../app/controllers/magazines_controller'
+require_relative '../app/controllers/journalists_controller'
+require_relative '../app/controllers/articles_controller'
+
+# VIEWS
+require_relative '../app/views/magazines/new'
+require_relative '../app/views/magazines/show'
+require_relative '../app/views/journalists/new'
+require_relative '../app/views/journalists/create'
+require_relative '../app/views/journalists/show'
+require_relative '../app/views/journalists/publish'
+
+# DATABASE SETUP
 articles_sql = <<-SQL
   CREATE TABLE IF NOT EXISTS articles (
     id INTEGER PRIMARY KEY,
@@ -45,7 +52,11 @@ magazines_sql = <<-SQL
   )
 SQL
 
+DB[:conn].execute("DROP TABLE IF EXISTS articles")
 DB[:conn].execute(articles_sql)
+
+DB[:conn].execute("DROP TABLE IF EXISTS journalists")
 DB[:conn].execute(journalists_sql)
+
+DB[:conn].execute("DROP TABLE IF EXISTS magazines")
 DB[:conn].execute(magazines_sql)
-DB[:conn].results_as_hash = true
