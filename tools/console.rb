@@ -48,5 +48,3 @@ while action != "Exit"
   end
 
 end
-
-Pry.start

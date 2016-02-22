@@ -1,4 +1,3 @@
-require 'pry'
 module Databaseable
 
   # CLASS METHODS
@@ -89,7 +88,6 @@ module Databaseable
       question_marks = self.class.public_attributes.map do |attribute|
         "#{attribute} = ?"
       end.join(", ")
-
 
       sql = <<-SQL
         UPDATE #{self.insert_table}

@@ -19,6 +19,18 @@ class Article
     articles
   end
 
+  def journalist
+    sql = <<-SQL
+      SELECT journalists.* FROM journalists
+      JOIN articles
+      ON articles.journalist_id = journalists.id
+      WHERE articles.journalist_id = ?
+    SQL
+
+    journalist = DB[:conn].execute(sql, self.journalist_id).first
+    Journalist.objects_from_row(journalist)
+  end
+
   # def self.show_article_body(title)
   #   article = self.find_by(title: title)
   # end
