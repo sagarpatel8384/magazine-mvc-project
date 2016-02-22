@@ -5,15 +5,42 @@ def reload!
   load('../config/environment.rb')
 end
 
+puts <<-NEWS
 
-action = "something"
+.-.`                ``````
+.yyyys/     `.:/+ossyyyyyyy/`                `..`
+`:///:.`       .yyyyyyy. `+syyyyyyyyyyyyyyyyys              -yyyys:      `./+ooo+:`
+`oyyyyyyy+     `oyyyyyy: `syyyyyyyyyyyyyyyyyyy/   `---.     `syyyyy:   `-+syyyyyyyyy/`
++yyyyyyyy+     /yyyyyyo``oyyyyys/:-.```oyyyyyo`  .oyyyy:   `oyyyyy/  .+syyyyyyyyyyyyyo
+/yyyyyyyyy/    -yyyyyyy` +yyyyyy-      :yyyyyy.  `syyyyy`  `+yyyyy/ `+yyyyyyys/.syyyyyy`
+-yyyyyyyyyy:   `syyyyyy: :yyyyyy:      `syyyyy:  .syyyyy+  `+yyyyy+`:syyyyyyo-``/yyyyyy:
+`syyyyyyyyyy:   +yyyyyy+ -yyyyyy/       :yyyyys` `syyyyyy/  +yyyyys.+yyyyyys-`.:oyyyyys-
+oyyyyyyyyyyy-  .yyyyyys`.yyyyyyo.`.---` oyyyyy/ `oyyyyyyy. +yyyyyy-oyyyyyy+` ./+ossso:`
+/yyyyyyyyyyyy-  oyyyyyy-`syyyyyyyssyyyy-.yyyyyy``oyyyyyyys :yyyyyy-/yyyyyy+`     ````
+.yyyyyyyyyyyyy. :yyyyyy+ +yyyyyyyyyyyyyy.+yyyyyo`+yyyyyyyy/-yyyyyy:`yyyyyyy-.----.`
+oyyyyyyyyyyyyy``syyyyys`-yyyyyyyyysooo+:`syyyyy//yyyyyyyyy:syyyyy: `syyyyyyyyyyyyys+-
+:yyyyyyy+yyyyyy.+yyyyyy-`yyyyyyo...``    .yyyyyysyyyyyyyyyyyyyyyy/   `/syyyyyyyyyyyyyy:
+.syyyyyy+-yyyyyy/yyyyyyo`+yyyyyy.         /yyyyyyyyyyyyyyyyyyyyyy/ `.--..-/+o+::oyyyyyy+
++yyyyyys`-yyyyyyyyyyyyy.:yyyyyy/          oyyyyyyyyyyoyyyyyyyyyy+.+syyyys+`     /yyyyyy-
+-yyyyyyy: -yyyyyyyyyyyy:`syyyyys`         `syyyyyyyyy-syyyyyyyyy+-syyyyyys:     -yyyyyy+
+`syyyyyyo  .yyyyyyyyyyyo`/yyyyyy: ``..-:/+o+yyyyyyyyy-`yyyyyyyyy+.syyyyyy/`    `/yyyyyyo`
+:yyyyyyy.  `yyyyyyyyyyy..yyyyyyyoossyyyyyyyyyyyyyyyy- :yyyyyyyy+`.yyyyyyo    `:syyyyyy/
+`syyyyyy/   `syyyyyyyyy: oyyyyyyyyyyyyyyyyyyyyyyyyyy:  +yyyyyyy+`  :syyyyy+//oyyyyyyy+.
+-yyyyyys`    oyyyyyyyy+ .yyyyyyyyyyyyyso+/-.-yyyyyy/   oyyyyyy/     `-+syyyyyyyyyys/.
+oyyyyyy-     +yyyyyyyo  -syyyyso//:..`      `:osyy+    ./+oss:          `-:/++++:.
+`yyyyyyo      /yyyyyy+`   `.:-`                 ```
+-yyyyyy-       `.:/+-
+.:+sso
 
+NEWS
+
+sleep(1)
+action = "Read"
 while action != "Exit"
   puts "Would you like to browse, write, or publish an article? (Enter 'Browse', 'Write', 'Publish', or 'Exit')"
   action = gets.chomp
 
   case action
-
   when "Browse"
     controller = ArticlesController.new
     browse_action = controller.new
@@ -64,4 +91,5 @@ while action != "Exit"
     controller.publish(journalist, article, magazine)
   end
   puts "Goodbye!"
+  puts '########### ¯\_(ツ)_/¯ #############'
 end
