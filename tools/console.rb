@@ -15,12 +15,15 @@ while action != "Exit"
   case action
 
   when "Browse"
+    # Opens Browse Window with list of Magazines
     controller = MagazinesController.new
     controller.index
+    # Asks which Magazine to View
     controller = MagazinesController.new
-    article_title = controller.show
+    article = controller.show
+    # Asks which Magazine to View
     controller = ArticlesController.new
-    controller.show(article_title)
+    controller.show(article)
 
   when "Write"
     # Create Journalist in Database
@@ -46,6 +49,3 @@ while action != "Exit"
   end
 
 end
-
-
-Pry.start
