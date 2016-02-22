@@ -8,6 +8,7 @@ DB = {:conn => SQLite3::Database.new("publishing.db")}
 
 # CONCERNS
 require_relative '../app/concerns/databaseable'
+require_relative '../app/concerns/validateable'
 
 # MODELS
 require_relative '../app/models/article'

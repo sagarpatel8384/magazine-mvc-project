@@ -1,4 +1,5 @@
 class JournalistsShowView
+  include Validateable
 
   def render_journalist
     puts "Please enter your name."
@@ -19,14 +20,6 @@ class JournalistsShowView
     all = Magazine.all.each.with_index(1) { |magazine, index| puts "#{index}. #{magazine.name}" }
     print "Enter Magazine Name: "
     valid_argument(all, "magazine", "name")
-  end
-
-  def valid_argument(all, attribute, column)
-    begin
-      print "Please enter a valid #{attribute}: "
-      result = gets.chomp
-    end while !all.find { |element| element.send("#{column}") == result }
-    result
   end
 
   def get_article_to_view
