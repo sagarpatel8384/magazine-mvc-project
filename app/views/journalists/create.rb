@@ -3,6 +3,7 @@ class JournalistsCreateView
     puts "What is the title of your article?"
     title = gets.chomp
     puts "Thank you for writing #{title}."
+    sleep(1)
     title
   end
 
@@ -10,6 +11,7 @@ class JournalistsCreateView
     puts "Type the body of your article here."
     body = gets.chomp
     puts "Thank you for writing your article."
+    sleep(1)
     body
   end
 
