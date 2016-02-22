@@ -9,7 +9,7 @@ end
 action = "something"
 
 while action != "Exit"
-  puts "Welcome. Would you like to browse, write, or publish an article? (Browse, Write, Publish, Exit)"
+  puts "Would you like to browse, write, or publish an article? (Enter 'Browse', 'Write', 'Publish', or 'Exit')"
   action = gets.chomp
 
   case action
@@ -19,7 +19,8 @@ while action != "Exit"
     browse_action = controller.new
 
       case browse_action
-
+      when "Main Menu"
+        redo
       when "Magazine"
         # Opens Browse Window with list of Magazines
         controller = MagazinesController.new
@@ -38,9 +39,7 @@ while action != "Exit"
         article = controller.show
         controller = ArticlesController.new
         controller.show(article)
-
       end
-
 
   when "Write"
     # Create Journalist in Database
@@ -66,5 +65,3 @@ while action != "Exit"
   end
 
 end
-
-Pry.start

@@ -6,7 +6,7 @@ class JournalistsNewView
   end
 
   def select_journalist
-    puts "Which journalist's articles would you like to browse? (Type in name)"
+    puts "Which journalist's articles would you like to browse? (Enter Journalist Name)"
     gets.chomp
   end
 end
