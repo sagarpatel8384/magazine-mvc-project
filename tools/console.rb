@@ -7,8 +7,6 @@ end
 
 puts <<-NEWS
 
-.-.`                ``````
-.yyyys/     `.:/+ossyyyyyyy/`                `..`
 `:///:.`       .yyyyyyy. `+syyyyyyyyyyyyyyyyys              -yyyys:      `./+ooo+:`
 `oyyyyyyy+     `oyyyyyy: `syyyyyyyyyyyyyyyyyyy/   `---.     `syyyyy:   `-+syyyyyyyyy/`
 +yyyyyyyy+     /yyyyyyo``oyyyyys/:-.```oyyyyyo`  .oyyyy:   `oyyyyy/  .+syyyyyyyyyyyyyo
@@ -30,7 +28,6 @@ oyyyyyyyyyyyyy``syyyyys`-yyyyyyyyysooo+:`syyyyy//yyyyyyyyy:syyyyy: `syyyyyyyyyyy
 oyyyyyy-     +yyyyyyyo  -syyyyso//:..`      `:osyy+    ./+oss:          `-:/++++:.
 `yyyyyyo      /yyyyyy+`   `.:-`                 ```
 -yyyyyy-       `.:/+-
-.:+sso
 
 NEWS
 
@@ -90,6 +87,4 @@ while action != "Exit"
     controller = JournalistsController.new
     controller.publish(journalist, article, magazine)
   end
-  puts "Goodbye!"
-  puts '########### ¯\_(ツ)_/¯ #############'
 end
