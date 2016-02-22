@@ -1,34 +1,15 @@
+require 'require_all'
 require 'erb'
 require 'sqlite3'
 require 'pry'
 require 'active_support/inflector'
 
+
 # DATABASE CREATION
 DB = {:conn => SQLite3::Database.new("publishing.db")}
 
-# CONCERNS
-require_relative '../app/concerns/databaseable'
-require_relative '../app/concerns/validateable'
-
-# MODELS
-require_relative '../app/models/article'
-require_relative '../app/models/journalist'
-require_relative '../app/models/magazine'
-
-# CONTROLLERS
-require_relative '../app/controllers/magazines_controller'
-require_relative '../app/controllers/journalists_controller'
-require_relative '../app/controllers/articles_controller'
-
-# VIEWS
-require_relative '../app/views/magazines/new'
-require_relative '../app/views/magazines/show'
-require_relative '../app/views/journalists/new'
-require_relative '../app/views/journalists/create'
-require_relative '../app/views/journalists/show'
-require_relative '../app/views/journalists/publish'
-require_relative '../app/views/articles/new'
-
+# REQUIRE ALL FILES IN APP
+require_rel '../app/'
 
 # DATABASE SETUP
 articles_sql = <<-SQL
