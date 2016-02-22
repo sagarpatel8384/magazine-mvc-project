@@ -1,21 +1,24 @@
 require_relative 'spec_helper'
 require 'pry'
 
-describe Journalist do 
+describe Journalist do
 
-  let!(:greta) {Journalist.new("Greta")}
-  let!(:saied) {Journalist.new("Saied")}
-  let(:article1) {Article.new("How To Garden", "Gardening is best done outdoors in the sun.")}
-  let(:article2) {Article.new("Ruby on Rails", "Ruby is an Object Oriented Language - super fun.")}
-  let(:time) {Magazine.new("Time")}
-  let(:nylon) {Magazine.new("Nylon")}
-  let(:wired) {Magazine.new("Wired")}
-  
+  let(:greta) {Journalist.new(name: "Greta")}
+  let(:saied) {Journalist.new(name: "Saied")}
+  let(:article1) {Article.new(title: "How To Garden", body: "Gardening is best done outdoors in the sun.", magazine_id: 1, journalist_id: 1)}
+  let(:article2) {Article.new(title: "Ruby on Rails", body: "Ruby is an Object Oriented Language - super fun.", magazine_id: 2, journalist_id: 2)}
+  let(:time) {Magazine.new(name: "Time")}
+  let(:nylon) {Magazine.new(name: "Nylon")}
+  let(:wired) {Magazine.new(name: "Wired")}
+
 
   describe '#find_journalist_by_name' do
 
     it 'return an instance of jouranlist based on name given' do
-      expect(Journalist.find_journalist_by_name("Saied")).to eq(saied)
+      greta
+
+
+      expect(article1.journalist_id).to eq(greta.save.id)
     end
 
   end
@@ -34,5 +37,5 @@ describe Journalist do
 
 
 
-    
+
 end

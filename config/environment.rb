@@ -1,6 +1,7 @@
 require 'erb'
 require 'sqlite3'
 require 'pry'
+require 'rspec'
 require 'active_support/inflector'
 
 # DATABASE CREATION

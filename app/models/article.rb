@@ -13,7 +13,7 @@ class Article
     SQL
 
     articles = DB[:conn].execute(sql, "#{magazine}")
-    articles.map { |article| self.objects_from_row(article) }
+    x = articles.map { |article| self.objects_from_row(article) }
   end
 
   def journalist
@@ -26,6 +26,7 @@ class Article
 
     journalist = DB[:conn].execute(sql, self.journalist_id).first
     Journalist.objects_from_row(journalist)
+
   end
 
 end

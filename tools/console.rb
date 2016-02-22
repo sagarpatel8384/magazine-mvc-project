@@ -88,3 +88,4 @@ while action != "Exit"
     controller.publish(journalist, article, magazine)
   end
 end
+
