@@ -27,12 +27,6 @@ describe Journalist do
       expect(saied.articles).to include(test)
     end
 
-   des
-
-
-
-
-
   end
 
 
