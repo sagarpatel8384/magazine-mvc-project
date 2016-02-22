@@ -1,12 +1,12 @@
 class ArticlesController
 
-  def show(article)
-    @article = article
-    self.render("articles/show")
+  def show(article_title)
+    @article_title = article_title
+    @article = Article.find_by(title: article_title)
+    render("articles/show")
   end
 
   def render(file)
-
     file_name = "/Users/sagarpatel/Documents/Flatiron/Labs/Ruby/magazine-mvc-project/app/views/template/#{file}.html.erb"
     content = File.read(file_name)
     template = ERB.new(content)

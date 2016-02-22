@@ -20,10 +20,9 @@ while action != "Exit"
     controller.index
     # Asks which Magazine to View
     controller = MagazinesController.new
-    article = controller.show
-    # Asks which Magazine to View
+    article_title = controller.show
     controller = ArticlesController.new
-    controller.show(article)
+    controller.show(article_title)
 
   when "Write"
     # Create Journalist in Database
@@ -49,3 +48,5 @@ while action != "Exit"
   end
 
 end
+
+Pry.start
