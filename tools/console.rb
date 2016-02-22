@@ -19,8 +19,7 @@ while action != "Exit"
     browse_action = controller.new
 
       case browse_action
-      when "Main Menu"
-        redo
+        
       when "Magazine"
         # Opens Browse Window with list of Magazines
         controller = MagazinesController.new

@@ -3,7 +3,7 @@ sagar = { name: "Sagar" }
 saied = { name: "Saied" }
 sammy = { name: "Sammy" }
 greta = { name: "Greta" }
-yonce = { name: "yonce" }
+yonce = { name: "Yonce" }
 ronny = { name: "Ronny" }
 
 
