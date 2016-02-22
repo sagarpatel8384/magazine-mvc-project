@@ -31,7 +31,4 @@ class Article
     Journalist.objects_from_row(journalist)
   end
 
-  # def self.show_article_body(title)
-  #   article = self.find_by(title: title)
-  # end
 end

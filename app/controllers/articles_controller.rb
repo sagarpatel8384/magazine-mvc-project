@@ -1,7 +1,11 @@
 class ArticlesController
 
+  def new
+    view = ArticlesNewView.new
+    view.select_article
+  end
+
   def show(article_title)
-    @article_title = article_title
     @article = Article.find_by(title: article_title)
     render("articles/show")
   end

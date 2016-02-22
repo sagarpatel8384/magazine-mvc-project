@@ -41,4 +41,29 @@ class JournalistsController
     view.render(journalist, article, magazine)
   end
 
+  def index
+    @journalists = Journalist.all
+    self.render("journalist/index")
+  end
+
+  def show
+    view = JournalistsNewView.new
+    journalist_name = view.select_journalist
+    @journalist = Journalist.find_by(name: journalist_name)
+    self.render("journalist/show")
+    view = JournalistsShowView.new
+    view.get_article_to_view
+  end
+
+  def render(file)
+    file_name = "../magazine-mvc-project/app/views/template/#{file}.html.erb"
+    content = File.read(file_name)
+    template = ERB.new(content)
+    output_content = template.result(binding)
+    output_file = "../magazine-mvc-project/app/views/output/#{file}.html"
+
+    File.write(output_file, output_content)
+    `open -a "Google Chrome" #{output_file}`
+  end
+
 end

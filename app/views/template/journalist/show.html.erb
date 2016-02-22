@@ -1,0 +1,7 @@
+<br>
+<h2><%= @journalist.name %></h2>
+<ol>
+  <% @journalist.articles.each do |article| %>
+    <li><%= article.title %></li>
+  <% end %>
+</ol>

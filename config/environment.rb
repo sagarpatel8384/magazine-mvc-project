@@ -26,6 +26,8 @@ require_relative '../app/views/journalists/new'
 require_relative '../app/views/journalists/create'
 require_relative '../app/views/journalists/show'
 require_relative '../app/views/journalists/publish'
+require_relative '../app/views/articles/new'
+
 
 # DATABASE SETUP
 articles_sql = <<-SQL
